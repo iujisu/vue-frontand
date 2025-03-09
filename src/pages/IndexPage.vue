@@ -1,50 +1,41 @@
 <template>
   <q-page class="flex flex-center">
-    <q-card class="bg-teal text-white">
+    <q-card square bordered class="q-pa-xl shadow-1">
       <q-card-section>
-        <div class="text-h6">Please login...</div>
+        <q-form ref="loginForm" class="q-gutter-md">
+          <q-input
+            square
+            filled
+            clearable
+            v-model="user_id"
+            :rules="[user_id_rules]"
+            type="text"
+            label="ID"
+          />
+          <q-input
+            square
+            filled
+            clearable
+            v-model="user_pw"
+            :rules="[user_pw_rules]"
+            type="password"
+            label="password"
+          />
+        </q-form>
       </q-card-section>
-
-      <q-card-section class="q-pt-none">
-        <div class="column">
-          <div class="row justify-center items-center">
-            <q-card square bordered class="q-pa-lg shadow-1">
-              <q-card-section>
-                <q-form ref="loginForm" class="q-gutter-md">
-                  <q-input
-                    square
-                    filled
-                    clearable
-                    v-model="user_id"
-                    :rules="[user_id_rules]"
-                    type="text"
-                    label="ID"
-                  />
-                  <q-input
-                    square
-                    filled
-                    clearable
-                    v-model="user_pw"
-                    :rules="[user_pw_rules]"
-                    type="password"
-                    label="password"
-                  />
-                </q-form>
-              </q-card-section>
-              <q-card-actions class="q-px-md">
-                <q-btn
-                  unelevated
-                  color="light-green-7"
-                  size="lg"
-                  class="full-width"
-                  label="Login"
-                  @click="login"
-                />
-              </q-card-actions>
-            </q-card>
-          </div>
-        </div>
-      </q-card-section>
+      <q-card-actions class="q-px-md">
+        <q-btn
+          unelevated
+          color="light-green-7"
+          size="lg"
+          class="full-width"
+          label="Login"
+          @click="login"
+        />
+      </q-card-actions>
+      <q-card-actions vertical align="right">
+        <router-link to="joinMember">회원가입</router-link>
+      </q-card-actions>
     </q-card>
   </q-page>
 </template>
